@@ -42,23 +42,9 @@ pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp
 ```
 
 3.Install dependencies
-- batchgenerators 0.21
-- connected-components-3d 3.2.0
-- fastremap 1.12.2
-- prefetch-generator 1.0.1
-- pynvml 8.0.4
-- pydicom 2.2.0
-- lmdb 0.99
-- scikit-image 0.15.0
-- scikit-learn 0.24.2
-- SimpleITK 1.1.0
-- yacs 0.1.8
-- tensorboardX 2.3
-- matplotlib 3.3.1
-- scipy
-- pandas
-- numpy
-- thop
+```
+pip install -r requirements.txt
+```
 
 ## Get Started
 ### preprocessing
