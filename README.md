@@ -6,14 +6,18 @@ EfficientSegmentation is an open source, PyTorch-based segmentation framework fo
   Anisotropic convolution block and anisotropic context block are designed for efficient and effective segmentation.
 - Pre-process data in multi-process. Distributed and Apex training support. Postprocess is performed asynchronously in inference stage.
 ## Benchmark
-| Architecture | Parameters(MB) | Flops(GB) | DSC | NSC | Inference time(s) | GPU memory(MB) |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| BaseUNet | 11 | 812 | 0.908 | 0.837 | 0.92 | 3183 |
-| EfficientSegNet | 9 | 333 | 0.919 | 0.848 | 0.46 | 2269 |
+| Task | Architecture | Parameters(MB) | Flops(GB) | DSC | NSC | Inference time(s) | GPU memory(MB) |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|[FLARE21](https://flare.grand-challenge.org/FLARE21/)| BaseUNet | 11 | 812 | 0.908 | 0.837 | 0.92 | 3183 |
+|[FLARE21](https://flare.grand-challenge.org/FLARE21/)| EfficientSegNet | 9 | 333 | 0.919 | 0.848 | 0.46 | 2269 |
 
 ## Installation
 ### Installation by docker image
 * Download the docker image.
+```angular2html
+  link: https://pan.baidu.com/s/1UkMwdntwAc5paCWHoZHj9w 
+  password：9m3z
+```
 * Put the abdomen CT image in current folder $PWD/inputs/.
 * Run the testing cases with the following code:
 ```bash
@@ -48,11 +52,12 @@ pip install -r requirements.txt
 
 ## Get Started
 ### preprocessing
-1. Copy image and mask to 'FlareSeg/dataset/' folder.
-2. Edit the 'FlareSeg/data_prepare/config.yaml'. 
+1. Download [FLARE21](https://flare.grand-challenge.org/Data/), resulting in 361 training images and masks, 50 validation images.
+2. Copy image and mask to 'FlareSeg/dataset/' folder.
+3. Edit the 'FlareSeg/data_prepare/config.yaml'. 
    'DATA_BASE_DIR'(Default: FlareSeg/dataset/) is the base dir of databases.
    If set the 'IS_SPLIT_5FOLD'(Default: False) to true, 5-fold cross-validation datasets will be generated.
-3. Run the data preprocess with the following command:
+4. Run the data preprocess with the following command:
 ```bash
 python FlareSeg/data_prepare/run.py
 ```
