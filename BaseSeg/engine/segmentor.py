@@ -329,6 +329,10 @@ class BaseSegmentation3D(object):
         return gpu_memory_max, memory_metric_min
 
     def do_train(self):
+        if self.is_print_out:
+            torch.cuda.synchronize()
+            train_start_time = time.time()
+            self.logger.info('Start training, time: {}'.format(train_start_time))
         self._create_train_data()
 
         if self.is_print_out:
@@ -370,6 +374,12 @@ class BaseSegmentation3D(object):
             self.train_writer.close()
             self.val_writer.close()
             self.logger.info('\nEnd of training, best dice: {}'.format(best_dice))
+
+        if self.is_print_out:
+            torch.cuda.synchronize()
+            train_end_time = time.time()
+            self.logger.info('Training finish,  time: {}'.format(train_end_time))
+            self.logger.info('Training time: {} hours'.format((train_end_time-train_start_time) / 60 / 60))
 
     def _train(self, epoch):
         self.model.train()

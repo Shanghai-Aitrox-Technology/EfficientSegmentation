@@ -6,6 +6,7 @@ segmentation of flare in fine resolution.
 
 import os
 import sys
+import time
 import warnings
 import argparse
 
@@ -68,6 +69,9 @@ if __name__ == '__main__':
                          'NUM_DEPTH': 4, 'LOSS': 'diceAndFocal', 'METRIC': 'dice'}
     }
 
+    torch.cuda.synchronize()
+    start_time = time.time()
+    print('Start training, time: {}'.format(start_time))
     for exp_name, exp_config in tune_params.items():
         print("{} is processing...".format(exp_name))
         cfg.ENVIRONMENT.EXPERIMENT_NAME = exp_name
@@ -122,3 +126,8 @@ if __name__ == '__main__':
             cfg.TESTING.IS_SAVE_MASK = True
             segmentation = SegmentationMultiProcess()
             run_multiprocessing(segmentation.run, cfg, 1)
+
+    torch.cuda.synchronize()
+    end_time = time.time()
+    print('Training finish,  time: {}'.format(end_time))
+    print('Training time: {} hours'.format((end_time - start_time) / 60 / 60))
