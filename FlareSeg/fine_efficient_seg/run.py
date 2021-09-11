@@ -82,12 +82,12 @@ if __name__ == '__main__':
         cfg.TRAINING.LOSS = exp_config['LOSS']
         cfg.TRAINING.METRIC = exp_config['METRIC']
 
-        if cfg.FINE_MODEL.META_ARCHITECTURE == 'ContextUNet' and cfg.FINE_MODEL.CONTEXT_BLOCK is not None:
-            cfg.DATA_LOADER.BATCH_SIZE = 3
-        elif cfg.FINE_MODEL.META_ARCHITECTURE == 'ContextUNet':
-            cfg.DATA_LOADER.BATCH_SIZE = 4
-        else:
-            cfg.DATA_LOADER.BATCH_SIZE = 5
+        # if cfg.FINE_MODEL.META_ARCHITECTURE == 'ContextUNet' and cfg.FINE_MODEL.CONTEXT_BLOCK is not None:
+        #     cfg.DATA_LOADER.BATCH_SIZE = 3
+        # elif cfg.FINE_MODEL.META_ARCHITECTURE == 'ContextUNet':
+        #     cfg.DATA_LOADER.BATCH_SIZE = 4
+        # else:
+        #     cfg.DATA_LOADER.BATCH_SIZE = 5
 
         for fold in cfg.DATA_LOADER.FIVE_FOLD_LIST:
             cfg.DATA_LOADER.TRAIN_VAL_FOLD = fold
