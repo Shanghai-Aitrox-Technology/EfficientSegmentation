@@ -127,7 +127,7 @@ The data information is stored in the lmdb file with the following format:
 }
 ```
 ### Training
-Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(number of 8) in the experiment, while fine segmentation on Nvidia A100(number of 4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files.
+Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8) in the experiment, while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files.
 #### Coarse segmentation:
 - Edit the 'FlareSeg/coarse_base_seg/config.yaml'
 - Train coarse segmentation with the following command:
