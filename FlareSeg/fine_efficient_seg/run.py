@@ -66,7 +66,7 @@ if __name__ == '__main__':
                          'ENCODER_CONV_BLOCK': 'ResBaseConvBlock',
                          'DECODER_CONV_BLOCK': 'AnisotropicConvBlock',
                          'CONTEXT_BLOCK': 'AnisotropicAvgPooling',
-                         'NUM_DEPTH': 4, 'LOSS': 'diceAndFocal', 'METRIC': 'dice'}
+                         'NUM_DEPTH': 4, 'LOSS': 'dice', 'METRIC': 'dice'},
     }
 
     torch.cuda.synchronize()

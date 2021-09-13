@@ -57,4 +57,4 @@ TRAINING:
     SAVER_DIR: './output/'
   IS_DISTRIBUTED_TRAIN: True
   IS_APEX_TRAIN: True
-  LOSS: 'diceAndFocal'
+  LOSS: 'dice'
