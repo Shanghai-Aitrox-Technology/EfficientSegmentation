@@ -137,7 +137,8 @@ sh run.sh
 ```
 
 #### Fine segmentation:
-- Edit the 'FlareSeg/fine_efficient_seg/config.yaml'. 
+- Edit the 'FlareSeg/fine_efficient_seg/config.yaml'.
+- Edit the 'FlareSeg/fine_efficient_seg/run.py', set the 'tune_params' for different experiments.
 - Train fine segmentation with the following command:
 ```bash
 cd  FlareSeg/fine_efficient_seg
