@@ -12,20 +12,6 @@ EfficientSegmentation is an open source, PyTorch-based segmentation framework fo
 |[FLARE21](https://flare.grand-challenge.org/FLARE21/)| EfficientSegNet | 9 | 333 | 0.919 | 0.848 | 0.46 | 2269 |
 
 ## Installation
-### Installation by docker image
-* Download the docker image.
-```angular2html
-  link: https://pan.baidu.com/s/1UkMwdntwAc5paCWHoZHj9w 
-  password：9m3z
-```
-* Put the abdomen CT image in current folder $PWD/inputs/.
-* Run the testing cases with the following code:
-```bash
-docker image load < fosun_aitrox.tgz
-nvidia-docker container run --name fosun_aitrox --rm -v $PWD/inputs/:/workspace/inputs/ -v $PWD/outputs/:/workspace/outputs/ fosun_aitrox:latest /bin/bash -c "sh predict.sh"'
-```
-
-### Installation step by step
 #### Environment
 - Ubuntu 16.04.12
 - Python 3.6+
