@@ -1,15 +1,20 @@
 # EfficientSegmentation
 ## Introduction
-EfficientSegmentation is an open source, PyTorch-based segmentation framework for 3D medical image. 
+- EfficientSegmentation is an open source, PyTorch-based segmentation framework for 3D medical image. 
+- For more information about efficientSegmentation, please read the following paper:
+[Efficient Context-Aware Network for Abdominal Multi-organ Segmentation](https://arxiv.org/abs/2109.10601). Please also cite this paper if you are using the method for your research!
+
 ## Features
-- A whole-volume-based coarse-to-fine segmentation framework. The segmentation network is decomposed into different components, including encoder, decoder and context module.
+- A whole-volume-based coarse-to-fine segmentation framework. The segmentation network is decomposed into different components, including basic encoder, slim decoder and efficient context blocks.
   Anisotropic convolution block and anisotropic context block are designed for efficient and effective segmentation.
-- Pre-process data in multi-process. Distributed and Apex training support. Postprocess is performed asynchronously in inference stage.
+- Pre-process data in multi-process. Distributed and Apex training support. In the inference phase, preprocess and postprocess are computed in GPU.
+- This method won the 1st place on the [2021-MICCAI-FLARE](https://flare.grand-challenge.org/Awards/) challenge. Where participants were required to effectively and efficiently segment multi-organ in abdominal CT.
 ## Benchmark
 | Task | Architecture | Parameters(MB) | Flops(GB) | DSC | NSC | Inference time(s) | GPU memory(MB) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |[FLARE21](https://flare.grand-challenge.org/FLARE21/)| BaseUNet | 11 | 812 | 0.908 | 0.837 | 0.92 | 3183 |
 |[FLARE21](https://flare.grand-challenge.org/FLARE21/)| EfficientSegNet | 9 | 333 | 0.919 | 0.848 | 0.46 | 2269 |
+
 
 ## Installation
 #### Environment
@@ -112,8 +117,13 @@ The data information is stored in the lmdb file with the following format:
     }
 }
 ```
+
+### Models
+- Models can be downloaded though [BaiduYun link](https://pan.baidu.com/s/15zjBnX83CC8Kg4yUHLLCNw), password: gnzv 
+- Put the models in the "FlareSeg/model_weights/" folder.
+
 ### Training
-Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8) in the experiment, while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files.
+Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8), while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files.
 #### Coarse segmentation:
 - Edit the 'FlareSeg/coarse_base_seg/config.yaml'
 - Train coarse segmentation with the following command:
@@ -123,6 +133,7 @@ sh run.sh
 ```
 
 #### Fine segmentation:
+- Put the trained coarse model in the 'FlareSeg/model_weights/base_coarse_model/' folder.
 - Edit the 'FlareSeg/fine_efficient_seg/config.yaml'.
 - Edit the 'FlareSeg/fine_efficient_seg/run.py', set the 'tune_params' for different experiments.
 - Train fine segmentation with the following command:
@@ -132,11 +143,14 @@ sh run.sh
 ```
 
 ### Inference:
-- The model weights are stored in 'FlareSeg/model_weights/'. 
+- Put the trained models in the 'FlareSeg/model_weights/' folder.
 - Run the inference with the following command:
 ```bash
 sh predict.sh
 ```
+
+### Evaluation:
+Refer to [FLARE2021 Evaluation](https://github.com/JunMa11/FLARE2021/tree/main/Evaluation).
 
 ## Contact
 This repository is currently maintained by Fan Zhang (zf2016@mail.ustc.edu.cn) and Yu Wang (wangyu@fosun.com)
@@ -144,3 +158,4 @@ This repository is currently maintained by Fan Zhang (zf2016@mail.ustc.edu.cn) a
 ## Citation
 
 ## Acknowledgement
+Thanks for FLARE organizers with the donation of the dataset.
