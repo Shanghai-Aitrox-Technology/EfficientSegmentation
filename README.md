@@ -119,7 +119,7 @@ The data information is stored in the lmdb file with the following format:
 ```
 
 ### Models
-- Models can be downloaded though [BaiduYun link](https://pan.baidu.com/s/15zjBnX83CC8Kg4yUHLLCNw), password: gnzv 
+- Models can be downloaded though [Baidu Netdisk](https://pan.baidu.com/s/15zjBnX83CC8Kg4yUHLLCNw), password: gnzv 
 - Put the models in the "FlareSeg/model_weights/" folder.
 
 ### Training
