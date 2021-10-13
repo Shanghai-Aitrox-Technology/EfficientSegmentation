@@ -50,7 +50,8 @@ pip install -r requirements.txt
    If set the 'IS_SPLIT_5FOLD'(Default: False) to true, 5-fold cross-validation datasets will be generated.
 4. Run the data preprocess with the following command:
 ```bash
-python FlareSeg/data_prepare/run.py
+cd FlareSeg/data_prepare
+python run.py
 ```
 The image data and lmdb file are stored in the following structure:
 ```wiki
@@ -123,9 +124,9 @@ The data information is stored in the lmdb file with the following format:
 - Put the models in the "FlareSeg/model_weights/" folder.
 
 ### Training
-Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8), while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files.
+Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8), while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files. You also need to edit the 'FlareSeg/coarse_base_seg/run.sh' file in coarse segmentation.
 #### Coarse segmentation:
-- Edit the 'FlareSeg/coarse_base_seg/config.yaml'
+- Edit the 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/coarse_base_seg/run.sh'
 - Train coarse segmentation with the following command:
 ```bash
 cd FlareSeg/coarse_base_seg
