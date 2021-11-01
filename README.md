@@ -120,8 +120,12 @@ The data information is stored in the lmdb file with the following format:
 ```
 
 ### Models
-- Models can be downloaded though [Baidu Netdisk](https://pan.baidu.com/s/15zjBnX83CC8Kg4yUHLLCNw), password: gnzv 
+- Models can be downloaded through [Baidu Netdisk](https://pan.baidu.com/s/1vk-hyBWGac-d63t1uKo9hA), password: pwuk 
 - Put the models in the "FlareSeg/model_weights/" folder.
+
+### AbdomenCT-1K models
+- We also trained models in [AbdomenCT-1K](https://github.com/JunMa11/AbdomenCT-1K) dataset. 
+  You can download through [Baidu Netdisk](https://pan.baidu.com/s/1HhUiStKyBVbWNTvY1nHwNQ), password:ks66
 
 ### Training
 Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8), while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files. You also need to set the 'nproc_per_node' in 'FlareSeg/coarse_base_seg/run.sh' file.
@@ -156,7 +160,9 @@ Refer to [FLARE2021 Evaluation](https://github.com/JunMa11/FLARE2021/tree/main/E
 ## Contact
 This repository is currently maintained by Fan Zhang (zf2016@mail.ustc.edu.cn) and Yu Wang (wangyu@fosun.com)
 
-## Citation
+## References
+[1] Z. e. a. Zhu, “A 3d coarse-to-fine framework for volumetric medical image segmentation.” 2018 International Conference on 3D Vision (3DV), 2018.
+[2] Q. e. a. Hou, “Strip pooling: Rethinking spatial pooling for scene parsing.” 2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020.
 
 ## Acknowledgement
 Thanks for FLARE organizers with the donation of the dataset.
