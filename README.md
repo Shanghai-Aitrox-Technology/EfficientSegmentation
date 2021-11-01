@@ -125,7 +125,7 @@ The data information is stored in the lmdb file with the following format:
 
 ### AbdomenCT-1K models
 - We also trained models in [AbdomenCT-1K](https://github.com/JunMa11/AbdomenCT-1K) dataset. 
-  You can download through [Baidu Netdisk](https://pan.baidu.com/s/1HhUiStKyBVbWNTvY1nHwNQ), password:ks66
+- You can download the models through [Baidu Netdisk](https://pan.baidu.com/s/1HhUiStKyBVbWNTvY1nHwNQ), password:ks66
 
 ### Training
 Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8), while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files. You also need to set the 'nproc_per_node' in 'FlareSeg/coarse_base_seg/run.sh' file.
