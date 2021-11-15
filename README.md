@@ -162,6 +162,7 @@ This repository is currently maintained by Fan Zhang (zf2016@mail.ustc.edu.cn) a
 
 ## References
 [1] Z. e. a. Zhu, “A 3d coarse-to-fine framework for volumetric medical image segmentation.” 2018 International Conference on 3D Vision (3DV), 2018.
+
 [2] Q. e. a. Hou, “Strip pooling: Rethinking spatial pooling for scene parsing.” 2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020.
 
 ## Acknowledgement
