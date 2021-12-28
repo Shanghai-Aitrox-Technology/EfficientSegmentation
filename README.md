@@ -1,6 +1,6 @@
 # EfficientSegmentation
 ## Introduction
-- EfficientSegmentation is an open source, PyTorch-based segmentation framework for 3D medical image. 
+- EfficientSegmentation is an open source, PyTorch-based segmentation method for 3D medical image. 
 - For more information about efficientSegmentation, please read the following paper:
 [Efficient Context-Aware Network for Abdominal Multi-organ Segmentation](https://arxiv.org/abs/2109.10601). Please also cite this paper if you are using the method for your research!
 
@@ -120,12 +120,12 @@ The data information is stored in the lmdb file with the following format:
 ```
 
 ### Models
-- Models can be downloaded through [Baidu Netdisk](https://pan.baidu.com/s/1vk-hyBWGac-d63t1uKo9hA), password: pwuk 
+- Models can be downloaded through [Baidu Netdisk](https://pan.baidu.com/s/1rRWKDdUTTBNl-uwwSEbxbg), password: vjy5 
 - Put the models in the "FlareSeg/model_weights/" folder.
 
 ### AbdomenCT-1K models
 - We also trained models in [AbdomenCT-1K](https://github.com/JunMa11/AbdomenCT-1K) dataset. 
-- You can download the models through [Baidu Netdisk](https://pan.baidu.com/s/1HhUiStKyBVbWNTvY1nHwNQ), password:ks66
+- You can download the models through [Baidu Netdisk](https://pan.baidu.com/s/1SiP6LzCS-3Py4W2MeM5vzQ), password:5k77
 
 ### Training
 Remark: Coarse segmentation is trained on Nvidia GeForce 2080Ti(Number:8), while fine segmentation on Nvidia A100(Number:4). If you use different hardware, please set the "ENVIRONMENT.NUM_GPU", "DATA_LOADER.NUM_WORKER" and "DATA_LOADER.BATCH_SIZE" in 'FlareSeg/coarse_base_seg/config.yaml' and 'FlareSeg/fine_efficient_seg/config.yaml' files. You also need to set the 'nproc_per_node' in 'FlareSeg/coarse_base_seg/run.sh' file.
